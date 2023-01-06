@@ -26,8 +26,8 @@ int rkickid_wrapper(lua_State* L) {
 HOOK_DEF(void, luaL_openlibs, lua_State* L) {
     orig_luaL_openlibs(L);
     //MessageBox(NULL, std::format("%p", _ReturnAddress()).c_str(), "Addon", MB_ICONINFORMATION);
-    if (!rcrashid) rcrashid = (_cmdrun)((DWORD64)_ReturnAddress() - 0x113202);
-    if (!rkickid) rkickid = (_cmdrun)((DWORD64)_ReturnAddress() - 0x113812);
+    if (!rcrashid) rcrashid = (_cmdrun)((DWORD64)_ReturnAddress() - 0x113C62);
+    if (!rkickid) rkickid = (_cmdrun)((DWORD64)_ReturnAddress() - 0x114272);
     lua_register(L, "rcrashid", rcrashid_wrapper);
     lua_register(L, "rkickid", rkickid_wrapper);
     g_RegisteredLua->push_back(L);
